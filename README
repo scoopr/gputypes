@@ -1,0 +1,45 @@
+gputypes
+
+Utilities for working with OpenGL/Metal type enums, which shader introspection
+returns.
+
+
+For working with OpenGL
+#include "gputypes/gltypes.h"
+const char *gltypes_typeName(GLenum type)
+  Returns the enum name as string
+GLenum gltypes_typeBase(GLenum type)
+  Returns the basic type (GL_FLOAT_VEC2 -> GL_FLOAT)
+int gltypes_typeElements(GLenum type)
+  Number of elements in the type (GL_FLOAT_MAT4x3 -> 12)
+int gltypes_sizeof(GLenum type)
+  Size of the type in bytes
+GPUType gltypes_gputype(GLenum type)
+  Return a generic type enum
+
+For working with Metal
+#include "gputypes/metaltypes.h"
+const char *metaltypes_typeName(MTLDataType type)
+  Returns the enum name as string
+MTLDataType metaltypes_typeBase(MTLDataType type)
+  Returns the basic type (MTLDataTypeFloat3 -> MTLDataTypeFloat)
+int metaltypes_typeElements(MTLDataType type)
+  Number of elements in the type (MTLDataTypeFloat4x3 -> 12)
+int metaltypes_sizeof(MTLDataType type)
+  Size of the type in bytes
+GPUType metaltypes_gputype(MTLDataType type)
+  Return a generic type enum
+
+For working the generic enums
+#include "gputypes/gputypes.h"
+const char *gputype_typeName(GPUType type)
+  Returns the enum name as string
+GPUType gputype_typeBase(GPUType type)
+  Returns the basic type (GPUTYPE_FLOAT_VEC3 -> GPUTYPE_FLOAT)
+int gputype_typeElements(GPUType type)
+  Number of elements in the type (GPUTYPE_FLOAT_MAT4x3 -> 12)
+int gputype_sizeof(GPUType type)
+  Size of the type in bytes
+
+
+All code is provided as public domain.
